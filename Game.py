@@ -8,7 +8,7 @@ def title_screen_selections():
             print("Please enter a valid command")
         option = input("> ")
         if option.lower() == ('play'):
-            start_game()
+            Start_game()
         elif option.lower() == ('quit'):
             exit()
     
