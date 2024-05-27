@@ -1,26 +1,153 @@
-from sys import exit
+from sys import exit, stdout
 from os import system
+from super_print import *
+from level import *
+
+acceptable_actions = ['move', 'go', 'inspect', 'look']
 
 def title_screen_selections():
     option = None
     while option is None or option.lower() not in ['play', 'quit']:
         if option is not None:
-            print("Please enter a valid command")
+            sprint("Please enter a valid command")
         option = input("> ")
         if option.lower() == ('play'):
-            Start_game()
+            choose_name()
         elif option.lower() == ('quit'):
             exit()
     
 def title_screen():
     system('clear')
-    print('##########################')
-    print('#   Welcome adventurer   #')
-    print('##########################')
-    print('         - Play -         ')
-    print('         - Quit -         ')
+    sprint('##########################')
+    sprint('#   Welcome adventurer   #')
+    sprint('##########################')
+    sprint('         - Play -         ')
+    sprint('         - Quit -         ')
+    sprint('--------------------------')
     title_screen_selections()
 
+
+
+def name_screen():
+    system('clear')
+    sprint('##########################')
+    sprint('#     Are you sure ?     #')
+    sprint('##########################')
+    sprint('         - Yeah -         ')
+    sprint('          - No -          ')
+    sprint('--------------------------')
+
+def choose_name():
+    sprint('What is your name, adventurer ?')
+    name = input("> ")
+    sprint("My dear friend " + name + ", that's a lovely name.")
+    return name
+
+        
+def avdventur():
+    lv1_screen()
+    option = None
+    while True:
+        if option is not None and option.lower() not in ['move', 'go']:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv2_screen()
+            break
+    option = None
+    while True:
+        if option is not None and option.lower() not in acceptable_actions:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv11_screen()
+            break
+        if option.lower() in ['inspect', 'look']:
+            lv3_screen()
+            break
+    option = None
+    while True:
+        if option is not None and option.lower() not in acceptable_actions:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv11_screen()
+            break
+        if option.lower() in ['inspect', 'look']:
+            lv4_screen()
+            break
+    option = None
+    while True:
+        if option is not None and option.lower() not in acceptable_actions:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv11_screen()
+            break
+        if option.lower() in ['inspect', 'look']:
+            lv5_screen()
+            break
+    option = None
+    while True:
+        if option is not None and option.lower() not in acceptable_actions:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv11_screen()
+            break
+        if option.lower() in ['inspect', 'look']:
+            lv6_screen()
+            break
+    option = None
+    while True:
+        if option is not None and option.lower() not in acceptable_actions:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv11_screen()
+            break
+        if option.lower() in ['inspect', 'look']:
+            lv7_screen()
+            break
+    option = None
+    while True:
+        if option is not None and option.lower() not in acceptable_actions:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv11_screen()
+            break
+        if option.lower() in ['inspect', 'look']:
+            lv8_screen()
+            break
+    option = None
+    while True:
+        if option is not None and option.lower() not in acceptable_actions:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv11_screen()
+            break
+        if option.lower() in ['inspect', 'look']:
+            lv9_screen()
+            break
+    option = None
+    while True:
+        if option is not None and option.lower() not in acceptable_actions:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv11_screen()
+            break
+        if option.lower() in ['inspect', 'look']:
+            lv10_screen()
+            lv11_screen()
+            break
+
+
+            
+
+
 if __name__ == "__main__":
-    title_screen()
+    avdventur()
     
