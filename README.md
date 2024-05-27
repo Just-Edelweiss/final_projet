@@ -1,6 +1,6 @@
 # final_projet
 ## What is this ?
-It's a really simple terminal game RPG like with a short story create with python.
+It's a really simple terminal game RPG like, with a short story create with python.
 ## Why ?
 This is a school group project for the end of the year.
 ## What are the objectives ?
