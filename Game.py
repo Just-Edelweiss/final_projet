@@ -2,8 +2,10 @@ from sys import exit, stdout
 from os import system
 from super_print import *
 from level import *
+from Object import *
+from Player import *
 
-acceptable_actions = ['move', 'go', 'inspect', 'look']
+acceptable_actions = ['move', 'go', 'inspect', 'look', 'Use']
 
 def title_screen_selections():
     option = None
@@ -12,7 +14,8 @@ def title_screen_selections():
             sprint("Please enter a valid command")
         option = input("> ")
         if option.lower() == ('play'):
-            choose_name()
+            P1 = Player(choose_name(), 10)
+            return P1, avdventur()
         elif option.lower() == ('quit'):
             exit()
     
@@ -42,8 +45,8 @@ def choose_name():
     name = input("> ")
     sprint("My dear friend " + name + ", that's a lovely name.")
     return name
-
         
+
 def avdventur():
     lv1_screen()
     option = None
@@ -64,6 +67,7 @@ def avdventur():
             break
         if option.lower() in ['inspect', 'look']:
             lv3_screen()
+            sword = Object('sword','weapon',1)
             break
     option = None
     while True:
@@ -143,11 +147,21 @@ def avdventur():
             lv10_screen()
             lv11_screen()
             break
-
-
-            
+    option = None
+    while True:
+        if option is not None and option.lower() not in acceptable_actions:
+            print("Please enter a valid command")
+        option = input("> ")
+        if option.lower() in ['move', 'go']:
+            lv12_screen()
+            Goblin = Player('Goblin', 10)
+            combat_scene(P1, Goblin)
+            break
+        if option.lower() in ['inspect', 'look']:
+            sprint('There is nothing to inspect')
+        option = input("> ")
 
 
 if __name__ == "__main__":
-    avdventur()
+    title_screen()
     

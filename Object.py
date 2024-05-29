@@ -4,5 +4,4 @@ class Object:
         self.type = type
         self.count = count
 
-sword = Object(name = 'sword', type = 'weapon')
-heal = Object(name='health_potion', type='item')
+heal = Object('health_potion', 'item', 1)

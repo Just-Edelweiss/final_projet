@@ -1,6 +1,7 @@
 from os import system
 from super_print import sprint
-from Object import *
+from Player import *
+
 
 
 def lv1_screen():
@@ -37,7 +38,6 @@ def lv2_screen():
 
 def lv3_screen():
     system('clear')
-    sword = Object(count=1)
     sprint('#----------------------------#')
     sprint('In an old wooden chest, you')
     sprint('find an rusty sword that will')
@@ -48,7 +48,6 @@ def lv3_screen():
 
 def lv4_screen():
     system('clear')
-    heal = Object(count=1)
     sprint('#----------------------------#')
     sprint('In your carefull researche you')
     sprint('find a healing potion... ')
@@ -101,4 +100,54 @@ def lv10_screen():
     system('clear')
     sprint('#----------------------------#')
     sprint('You win. I give up.')
+    sprint('#----------------------------#')
+
+def lv11_screen():
+    system('clear')
+    sprint('#----------------------------#')
+    sprint('You now enter in the forest')
+    sprint('near the monolith. The little')
+    sprint('light that can come thrue all')
+    sprint("the branches don't help that")
+    sprint('much.')
+    sprint('#----------------------------#')
+
+def lv12_screen():
+    system('clear')
+    sprint('#----------------------------#')
+    sprint('Oh no. you uncounter a goblin.')
+    sprint('He look menacing, is gonna')
+    sprint('attack you. You can try the')
+    sprint("command 'Use' to help you.")
+    sprint('#----------------------------#')
+
+def use_table():
+    system('clear')
+    sprint('#----------------------------#')
+    sprint('    What do you want to use   ')
+    sprint('#----------------------------#')
+    sprint('           - sword -          ')
+    sprint('           - heal  -          ')
+    sprint('#----------------------------#')
+
+def combat_scene(player, enemie):
+    while player.alive or enemie.alive:
+        option = None
+        use_table()
+        while option is None or option.lower() not in ['Sword', 'Heal']:
+            if option is not None:
+                sprint("Please enter a valid command")
+            option = input("> ")
+            if option.lower() == ('Sword'):
+                player.attack(enemie)
+                enemie.attack(player)
+            elif option.lower() == ('Heal'):
+                player.heal()
+    end()
+
+def end():
+    system('clear')
+    sprint('#----------------------------#')
+    sprint('Congratulation, you won the')
+    sprint('game.')
     sprint('#----------------------------#')
