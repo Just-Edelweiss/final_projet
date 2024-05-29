@@ -5,7 +5,6 @@ from Player import *
 
 
 def lv1_screen():
-    system('clear')
     sprint('#----------------------------#')
     sprint('You are an adventurer thirsty')
     sprint('for adventure, starting your')
@@ -122,8 +121,6 @@ def lv12_screen():
     sprint('#----------------------------#')
 
 def use_table():
-    system('clear')
-    sprint('#----------------------------#')
     sprint('    What do you want to use   ')
     sprint('#----------------------------#')
     sprint('           - sword -          ')
@@ -131,17 +128,17 @@ def use_table():
     sprint('#----------------------------#')
 
 def combat_scene(player, enemie):
+    option = None
     while player.alive or enemie.alive:
-        option = None
         use_table()
-        while option is None or option.lower() not in ['Sword', 'Heal']:
+        while option is None or option.lower() not in ['sword', 'heal']:
             if option is not None:
                 sprint("Please enter a valid command")
             option = input("> ")
-            if option.lower() == ('Sword'):
+            if option.lower() == ('sword'):
                 player.attack(enemie)
                 enemie.attack(player)
-            elif option.lower() == ('Heal'):
+            elif option.lower() == ('heal'):
                 player.heal()
     end()
 

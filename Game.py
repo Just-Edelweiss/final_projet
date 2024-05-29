@@ -14,11 +14,12 @@ def title_screen_selections():
             sprint("Please enter a valid command")
         option = input("> ")
         if option.lower() == ('play'):
-            P1 = Player(choose_name(), 10)
-            return P1, avdventur()
+            sprint('What is your name, adventurer ?')
         elif option.lower() == ('quit'):
             exit()
-    
+
+
+
 def title_screen():
     system('clear')
     sprint('##########################')
@@ -30,24 +31,14 @@ def title_screen():
     title_screen_selections()
 
 
-
-def name_screen():
-    system('clear')
-    sprint('##########################')
-    sprint('#     Are you sure ?     #')
-    sprint('##########################')
-    sprint('         - Yeah -         ')
-    sprint('          - No -          ')
-    sprint('--------------------------')
-
 def choose_name():
-    sprint('What is your name, adventurer ?')
     name = input("> ")
+    system('clear')
     sprint("My dear friend " + name + ", that's a lovely name.")
     return name
         
 
-def avdventur():
+def adventur():
     lv1_screen()
     option = None
     while True:
@@ -164,4 +155,6 @@ def avdventur():
 
 if __name__ == "__main__":
     title_screen()
+    P1 = Player(choose_name(), 10)
+    adventur()
     
